@@ -22,4 +22,11 @@ class WhatsAppController extends Controller
         if ($r->failed()) return response()->json(['message' => 'No QR'], 404);
         return response()->json($r->json());
     }
+
+    public function logout()
+    {
+        $base = env('WA_WORKER_URL', 'http://127.0.0.1:3333');
+        $r = Http::post("$base/logout");
+        return response()->json($r->json());
+    }
 }

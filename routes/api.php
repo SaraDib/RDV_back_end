@@ -45,6 +45,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::middleware('role:admin')->group(function () {
         Route::get('/whatsapp/status', [WhatsAppController::class, 'status']);
         Route::get('/whatsapp/qr', [WhatsAppController::class, 'qr']);
+        Route::post('/whatsapp/logout', [WhatsAppController::class, 'logout']);
     });
 
     /**
